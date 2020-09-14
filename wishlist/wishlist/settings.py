@@ -95,6 +95,8 @@ DATABASES = {
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('GOOGLE_SECRET_ID')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('GOOGLE_SECRET_KEY')
 
+LOGIN_REDIRECT_URL = 'https://wishlistd.herokuapp.com/'
+
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'rest_framework_social_oauth2.backends.DjangoOAuth2',
