@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework import viewsets
 from .models import Goods, WishList
 from .serializers import ItemSerializer, ItemCreateSerializer, WishListSerializer
 from rest_framework.response import Response
 from rest_framework import status
-# Create your views here.
 
 
 class UltraGoodsView(viewsets.ViewSet):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
 
@@ -44,6 +44,7 @@ class UltraGoodsView(viewsets.ViewSet):
 class WishListView(viewsets.ModelViewSet):
     queryset = WishList.objects.all()
     serializer_class = WishListSerializer
+    permission_classes = [AllowAny]
 
 
 

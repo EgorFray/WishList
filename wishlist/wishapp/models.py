@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
 
-# Create your models here.
-
 
 class Goods(models.Model):
     title = models.CharField(max_length=50, null=False, blank=False)
